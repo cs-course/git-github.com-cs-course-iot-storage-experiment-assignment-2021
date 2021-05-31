@@ -33,3 +33,7 @@
     * Pull请求即为向原始仓库要求合并，即**交作业**
     * 教师完成合并后作业将呈现于原始作业仓库中，完成提交
     * 后续如果有更新，还可以提交、推送后再次发起Pull请求
+
+6. 作业提交样式参考
+
+    * <https://github.com/cs-course/iot-storage-experiment-assignment-2019/tree/master/U201614890>
