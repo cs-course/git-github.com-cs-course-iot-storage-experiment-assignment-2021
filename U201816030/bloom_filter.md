@@ -65,10 +65,67 @@ impl<const WordCount: usize, const BucketCount: usize, const BucketSize: u8> Buc
 通过这两个方法函数，我们就可以做到对某个 bucket 置 1 和获取某个 bucket 的值了。  
 
 ### 哈希函数设计与实现
-在 BF 中，我们需要的是一系列的哈希函数，而不是单个，因此我们借助 Rust 
+在 BF 中，我们需要的是一系列的哈希函数，而不是单个，因此我们借助 Rust 语言的迭代器语法来设计哈希函数：  
+```Rust
+/// A trait for creating hash iterator of item.
+/// Rust 里面的 trait 相当于 Java 里面的 interface
+pub trait HashKernels {
+    type HI: Iterator<Item = usize>;
+
+    fn hash_iter<T: Hash>(&self, item: &T) -> Self::HI;
+}
+```
+这个 HashKernels trait 只有一个方法 hash_iter，它的语义是返回一个哈希函数的迭代器，这样就可以抽象出“一系列哈希函数”的概念了。  
+
+### insert 方法和 contains 方法的实现
+有了 Buckets 和 HashKernels 的基础，我们就可以实现数据的插入和查询方法，为应用场景提供 API 了。  
+```Rust
+impl<BHK: BuildHashKernels, const W: usize, const B: usize, const S: u8> BloomFilter for Filter<BHK, W, B, S> {
+    /// 插入数据，更新所有哈希结果对应的 bucket
+fn insert<T: Hash>(&mut self, item: &T) {
+        self.decrement();
+        let max = self.buckets.max_value();
+        self.hash_kernels.hash_iter(item).for_each(|i| self.buckets.set(i, max))
+    }
+    /// 查询数据是否存在在集合中，只有所有哈希结果对应的 bucket 都被置一才返回 true
+    /// 可能会误报，但不可能漏报
+    fn contains<T: Hash>(&self, item: &T) -> bool {
+        self.hash_kernels.hash_iter(item).all(|i| self.buckets.get(i) > 0)
+    }
+}
+```
+这样我们就实现了 insert 和 contains 方法，可以插入和查询数据了。  
+
+### 正确性测试
+这里基于 Rust 语言内置的单元测试系统，来测试上述结构实现的正确性：  
+```Rust
+fn _contains(items: &[usize]) {
+        let mut filter = Filter::<_, {compute_word_num(730, 3)}, 730, 3>::new(0.03, DefaultBuildHashKernels::new(random(), RandomState::new()));
+        assert!(items.iter().all(|i| !filter.contains(i)));
+        items.iter().for_each(|i| filter.insert(i));
+        assert!(items.iter().all(|i| filter.contains(i)));
+    }
+
+    proptest! {
+        #[test]
+        fn contains(ref items in any_with::<Vec<usize>>(size_range(7).lift())) {
+            _contains(items)
+        }
+    }
+```
+测试结果：  
+```
+running 1 test
+test stable::tests::contains ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.02s
+```
+
 ## 多维 Bloom Filter 的设计与实现
 
 ## 测试分析
+这里借助开源项目[criterion](https://github.com/bheisler/criterion.rs)进行系统测试和分析。  
+该项目可以帮助我们运行测试任务，输出运行时间，统计尾延迟，运行时间最佳估计等。  
 ### 延迟
 ### false positive
 ### 空间开销
