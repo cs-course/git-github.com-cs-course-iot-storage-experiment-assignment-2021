@@ -9,8 +9,9 @@
 
 **CuckooHashing ->** Cuckoo Hashing / Dense Cuckoo Hashing
 
-编译运行方法见 https://github.com/yingjia-git/Cuckoo-Hashing，random seed = 1024
+编译运行方法见 https://github.com/yingjia-git/Cuckoo-Hashing
 
+random seed = 1024
 
 
 ------------------------------------------
