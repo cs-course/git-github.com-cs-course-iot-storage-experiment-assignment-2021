@@ -122,10 +122,105 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; fini
 ```
 
 ## 多维 Bloom Filter 的设计与实现
+### 在 Bloom Filter 基础上进行多维抽象
+在 Rust 编程中，抽象是很重要的一个概念，好的抽象可以减少代码工作量。目前我们抽取多维 Bloom Filter 的`多维`概念，定义下面的 trait:  
+```Rust
+pub trait MultiBloomFilter {
+    type BF: BloomFilter;
+    type BI: IntoIterator<Item = Self::BF>;
 
+    fn bloom_filter(self) -> Self::BI;
+}
+```
+这个 trait 只有一个 bloom_filter 方法，这个方法会返回一个`迭代器生成器`，迭代器迭代的是各个维度的 Bloom Filter 实例。通过这样的 trait 我们就很优雅地把多维 Bloom Filter 抽象出来了。  
+
+### 使用常量泛型实现多维 Bloom Filter
+上面讲述过常量泛型非常适合用来实现编译期可以知道需要内存空间大小的数据结构，在多维 BF 的应用场景中，大部分的情况下数据的维度都是固定的，也就是说我们完全可以在编译期就知道多维 BF 中有多少个 BF。因此这里我们使用常量泛型来实现多维 BF：  
+```Rust
+pub struct DefaultMultiBloomFilter<BF: BloomFilter, const N: usize> {
+    bloom_filters: [BF; N]
+}
+```
+上面结构体中的 BF 指的是具体 Bloom Filter 实现的类型，常量泛型 const N 指代的是维度。  
+
+### 为多维 Bloom Filter 实现迭代语法
+这里为多维 BF 实现迭代器语法，可以使得代码编写更加方便：  
+```Rust
+impl<B: BloomFilter, const N: usize> IntoIterator for DefaultMultiBloomFilter<B, N> {
+    type Item = B;
+    type IntoIter = std::array::IntoIter<Self::Item, N>;
+    fn into_iter(self) -> Self::IntoIter {
+        std::array::IntoIter::new(self.bloom_filters)
+    }
+}
+```
+上面的 into_tier 方法夺取多维 BF 的所有权，生成一个迭代器。  
+
+###  为多维 Bloom Filter 实现 MultiBloomFilter trait
+上一节我们为多维 BF 实现了 IntoIterator trait，满足了实现 MultiBloomFilter trait 的条件，下面我们可以为多维 BF 实现该 trait，完成抽象和实现的统一：  
+```Rust
+impl<B: BloomFilter, const N: usize> MultiBloomFilter for DefaultMultiBloomFilter<B, N> {
+    type BF = B;
+    type BI = std::array::IntoIter<B, N>;
+    fn bloom_filter(self) -> Self::BI {
+        self.into_iter()
+    }
+}
+```
+现在我们就可以通过 bloom_filter 方法来获取多维 BF 的迭代器了。  
+### 正确性测试
+```Rust
+#[test]
+fn default_multi_bloom_filter_test() {
+    let filtes = [
+        filter!(73, 3, 0.03, DefaultBuildHashKernels::new(random(), RandomState::new())),
+        filter!(73, 3, 0.03, DefaultBuildHashKernels::new(random(), RandomState::new())),
+        filter!(73, 3, 0.03, DefaultBuildHashKernels::new(random(), RandomState::new()))
+        ];
+    let multi_filter = DefaultMultiBloomFilter::new(filtes);
+    let items = [vec![1; 10], vec![1; 10], vec![1; 10]];
+    let iter: Vec<_> = multi_filter
+        .bloom_filter()
+        .zip(items.iter())
+        .map(|(mut f, i)| {
+            i.iter().for_each(|item| f.insert(item));
+            f
+        })
+        .collect();
+    let ret = iter
+        .iter()
+        .zip(items.iter())
+        .all(|(f, i)| {
+            i.iter().all(|item| f.contains(item))
+        });
+    assert!(ret);
+}
+```
+测试结果：  
+```
+running 1 test
+test multi::default_multi_bloom_filter_test ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+```
 ## 测试分析
 这里借助开源项目[criterion](https://github.com/bheisler/criterion.rs)进行系统测试和分析。  
 该项目可以帮助我们运行测试任务，输出运行时间，统计尾延迟，运行时间最佳估计等。  
 ### 延迟
+基于下面几个可变参数对多维 BF 进行延迟测试：  
++ 数据的维度
++ 数据的尺寸（数量）
++ 可接受误报率
+
+测试代码：  
+```Rust
+
+```
+
+|数据维度|数据尺寸|可接受误报率|最高延迟/us|最低延迟/us|延迟最佳估计/us|
+|---|---|---|---|---|---|
+|3|10|0.03|15.984|15.875|15.785|
+
+
 ### false positive
 ### 空间开销
