@@ -1,5 +1,27 @@
 # 基于 Rust 语言的多维 Bloom Filter 设计与实现
 
+- [基于 Rust 语言的多维 Bloom Filter 设计与实现](#基于-rust-语言的多维-bloom-filter-设计与实现)
+  - [引言](#引言)
+  - [Bloom Filter 的设计与实现](#bloom-filter-的设计与实现)
+    - [设计思想](#设计思想)
+    - [数据结构设计](#数据结构设计)
+    - [Buckets 的设计与实现](#buckets-的设计与实现)
+    - [哈希函数设计与实现](#哈希函数设计与实现)
+    - [insert 方法和 contains 方法的实现](#insert-方法和-contains-方法的实现)
+    - [正确性测试](#正确性测试)
+  - [多维 Bloom Filter 的设计与实现](#多维-bloom-filter-的设计与实现)
+    - [在 Bloom Filter 基础上进行多维抽象](#在-bloom-filter-基础上进行多维抽象)
+    - [使用常量泛型实现多维 Bloom Filter](#使用常量泛型实现多维-bloom-filter)
+    - [为多维 Bloom Filter 实现迭代语法](#为多维-bloom-filter-实现迭代语法)
+    - [为多维 Bloom Filter 实现 MultiBloomFilter trait](#为多维-bloom-filter-实现-multibloomfilter-trait)
+    - [正确性测试](#正确性测试-1)
+  - [测试分析](#测试分析)
+    - [延迟](#延迟)
+    - [false positive](#false-positive)
+    - [空间开销](#空间开销)
+  - [小结](#小结)
+
+
 ## 引言
 Bloom Filter 是由 Burton Howard BLoom 在 1970 年提出的一种用于数据去重，空间效率高的概率型数据结构。它专门用来检测集合中是否存在特定的元素。  
 Rust 语言是一门现代系统级编程语言，同时兼顾高性能和安全。和 C/C++ 相比，Rust 语言引入了所有权和生命周期机制，保证了系统运行时的安全性，与 Java/Go 相比，它没有 GC 机制，因此具有更高效的运行时系统。  
@@ -214,13 +236,119 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; fini
 
 测试代码：  
 ```Rust
-
+// 数据维度为 3，数据尺寸为 10，可接受误报率为 0.03
+fn bench(c: &mut Criterion) {
+    let multi = Fun::new("multi", |b, fp_rate| {
+        let items0: Vec<usize> = thread_rng().sample_iter(&Standard).take(7).collect();
+        let items1: Vec<usize> = thread_rng().sample_iter(&Standard).take(7).collect();
+        let items2: Vec<usize> = thread_rng().sample_iter(&Standard).take(7).collect();
+        let items = [items0, items1, items2];
+        b.iter(|| {
+            let filtes = [
+                filter!(73, 3, *fp_rate, DefaultBuildHashKernels::new(random(), RandomState::new())),
+                filter!(73, 3, *fp_rate, DefaultBuildHashKernels::new(random(), RandomState::new())),
+                filter!(73, 3, *fp_rate, DefaultBuildHashKernels::new(random(), RandomState::new()))
+            ];
+            let multi_filter = DefaultMultiBloomFilter::new(filtes);
+            // 插入数据
+            let iter: Vec<_> = multi_filter
+                .into_iter()
+                .zip(items.iter())
+                .map(|(mut f, i)| {
+                    i.iter().for_each(|item| f.insert(item));
+                    f
+                })
+                .collect();
+                // 查询数据
+            let ret = iter
+                .iter()
+                .zip(items.iter())
+                .all(|(f, i)| {
+                    i.iter().all(|item| f.contains(item))
+                });
+            assert!(ret);
+        });
+    });
+    c.bench_functions("multi", vec![multi], 0.03);
+}
 ```
 
 |数据维度|数据尺寸|可接受误报率|最高延迟/us|最低延迟/us|延迟最佳估计/us|
 |---|---|---|---|---|---|
 |3|10|0.03|15.984|15.875|15.785|
+|5|10|0.03|27.016|26.299|26.593|
+|7|10|0.03|38.270|37.093|37.650|
+|3|100|0.03|13.883|13.780|13.829|
+|3|200|0.003|15.018|14.534|14.764|
+|3|100|0.1|10.584|10.244|10.399|
+|3|100|0.3|6.6112|6.3845|6.4917|
 
-
+分析：  
++ 数据维度增大，数据插入和检索的时间增大，延迟增大
++ 数据尺寸增大，由于 Bloom Filter 的结构，访问数据的位置通过直接哈希得到，因此时间上变化不大
++ 可接受误报率增大，延迟减少，但误报率也随之增大
 ### false positive
+false positive rate 指的是误报率，现在通过以下代码来测试 false positive rate:  
+```Rust
+fn bench(c: &mut Criterion) {
+    let filtes = [
+        filter!(730, 3, 0.03, DefaultBuildHashKernels::new(random(), RandomState::new())),
+        filter!(730, 3, 0.03, DefaultBuildHashKernels::new(random(), RandomState::new())),
+        filter!(730, 3, 0.03, DefaultBuildHashKernels::new(random(), RandomState::new()))
+    ];
+    let multi_filter = DefaultMultiBloomFilter::new(filtes);
+    let mut count = 0;
+    let mut false_positives = 0;
+    let mut iter: Vec<_> = multi_filter.into_iter().collect();
+    while count < 100000 {
+        let items0: Vec<usize> = thread_rng().sample_iter(&Standard).take(2).collect();
+        let items1: Vec<usize> = thread_rng().sample_iter(&Standard).take(2).collect();
+        let items2: Vec<usize> = thread_rng().sample_iter(&Standard).take(2).collect();
+        let items = [items0, items1, items2];
+        iter = iter
+            .iter_mut()
+            .zip(items.iter())
+            .map(|(f, i)| {
+                f.insert(&i[0]);
+                f.clone()
+            })
+            .collect();
+        
+        iter = iter
+            .iter_mut()
+            .zip(items.iter())
+            .map(|(f, i)| {
+                if f.contains(&i[1]) { false_positives += 1; }
+                f.clone()
+            })
+            .collect();
+        
+        count += 1;
+    }
+    
+    println!("MultiBloomFilter false positives: {:?}", false_positives as f32 / 100000.0);
+    let multi = Fun::new("multi", |b, _| b.iter(|| {}));
+    let functions = vec![multi];
+    c.bench_functions("multi false_positives_rate", functions, ());
+}
+```
+基本思想是先给多维 BF 插入一些数据，然后让它查询一些不存在的数据，统计误报的次数。  
+测试结果：  
+```
+MultiBloomFilter false positives: 0.09344
+```
+
 ### 空间开销
+实际使用 Bloom Filter 时，一般会关注 false positive rate，因为这和额外开销相关。实际使用中，期望能给定一个 false positive rate 和将要插入的元素数量，能计算出分配多少的存储空间比较合适。  
+假设 BloomFilter 中元素总 bit 数量为 m,插入元素个数为 n，hash 函数个数为 k，false positive rate 记作 p，如果要最小化 false positive rate，可以有以下推导：  
+```
+k = -lnp / ln2;
+m = -n * lnp / (ln2) ^ 2
+```
+因此 Bloom Filter 需要的空间开销与预计插入元素个数，还有可接受误报率有关，关系如上式。  
+由于我在实现的过程中使用常量泛型来实现 Bloom Filter，因此需要的空间大小在编译期可以确定，数据可以放在栈上。  
+
+## 小结
+本次实验我基于 Rust 语言实现了一款 Bloom Filter 的支持库，并且进行了多维的拓展。在编写代码的过程中使用了 Rust 语言刚稳定不久的常量泛型语法，尽量保证系统高性能的同时，确保内存安全。  
+该支持库有着良好的抽象，充分发挥了 Rust 语言的高性能，安全性和丰富的表现力，目前已在 github 上开源，欢迎访问：[bloom-filters](https://github.com/SKTT1Ryze/bloom-filters/tree/const-generic)  
+通过本次实验，我对 Rust 语言的常量泛型语法更加熟悉了，对一些迭代器语法也写得更加熟练了，代码能力得到了不错的提高。希望后面继续精进。  
