@@ -1,6 +1,5 @@
-# 基于 Rust 语言的多维 Bloom Filter 设计与实现
+## 基于 Rust 语言的多维 Bloom Filter 设计与实现
 
-- [基于 Rust 语言的多维 Bloom Filter 设计与实现](#基于-rust-语言的多维-bloom-filter-设计与实现)
   - [引言](#引言)
   - [Bloom Filter 的设计与实现](#bloom-filter-的设计与实现)
     - [设计思想](#设计思想)
