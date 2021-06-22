@@ -1,0 +1,1181 @@
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0020 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9931ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0020 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 0.500 MB
+Total Throughput:  0.47 MB/s
+Total Duration:    1.065 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.547 s
+Write times 99th %ile: 0.512 s
+Write times 90th %ile: 0.016 s
+Write times 75th %ile: 0.015 s
+Write times 50th %ile: 0.013 s
+Write times 25th %ile: 0.012 s
+Write times Min:       0.009 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 0.500 MB
+Total Throughput:  0.91 MB/s
+Total Duration:    0.548 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.517 s
+Read times 99th %ile: 0.022 s
+Read times 90th %ile: 0.015 s
+Read times 75th %ile: 0.013 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.009 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 5.9837ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0039 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9919ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0039 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 1.000 MB
+Total Throughput:  1.65 MB/s
+Total Duration:    0.606 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.553 s
+Write times 99th %ile: 0.034 s
+Write times 90th %ile: 0.019 s
+Write times 75th %ile: 0.015 s
+Write times 50th %ile: 0.014 s
+Write times 25th %ile: 0.013 s
+Write times Min:       0.009 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 1.000 MB
+Total Throughput:  1.89 MB/s
+Total Duration:    0.528 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.520 s
+Read times 99th %ile: 0.019 s
+Read times 90th %ile: 0.014 s
+Read times 75th %ile: 0.013 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.006 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9866ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0059 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9535ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0059 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 1.500 MB
+Total Throughput:  2.54 MB/s
+Total Duration:    0.591 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.541 s
+Write times 99th %ile: 0.033 s
+Write times 90th %ile: 0.018 s
+Write times 75th %ile: 0.015 s
+Write times 50th %ile: 0.014 s
+Write times 25th %ile: 0.012 s
+Write times Min:       0.011 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 1.500 MB
+Total Throughput:  2.81 MB/s
+Total Duration:    0.535 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.523 s
+Read times 99th %ile: 0.024 s
+Read times 90th %ile: 0.013 s
+Read times 75th %ile: 0.012 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.007 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 6.9817ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0078 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9917ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0078 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 2.000 MB
+Total Throughput:  3.08 MB/s
+Total Duration:    0.649 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.543 s
+Write times 99th %ile: 0.033 s
+Write times 90th %ile: 0.022 s
+Write times 75th %ile: 0.018 s
+Write times 50th %ile: 0.015 s
+Write times 25th %ile: 0.013 s
+Write times Min:       0.010 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 2.000 MB
+Total Throughput:  1.93 MB/s
+Total Duration:    1.034 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       1.022 s
+Read times 99th %ile: 0.513 s
+Read times 90th %ile: 0.019 s
+Read times 75th %ile: 0.016 s
+Read times 50th %ile: 0.014 s
+Read times 25th %ile: 0.012 s
+Read times Min:       0.008 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 5.9944ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0098 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (1.9947ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0098 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 2.500 MB
+Total Throughput:  2.37 MB/s
+Total Duration:    1.057 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.544 s
+Write times 99th %ile: 0.042 s
+Write times 90th %ile: 0.022 s
+Write times 75th %ile: 0.020 s
+Write times 50th %ile: 0.019 s
+Write times 25th %ile: 0.017 s
+Write times Min:       0.012 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 2.500 MB
+Total Throughput:  2.37 MB/s
+Total Duration:    1.053 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.541 s
+Read times 99th %ile: 0.518 s
+Read times 90th %ile: 0.017 s
+Read times 75th %ile: 0.015 s
+Read times 50th %ile: 0.014 s
+Read times 25th %ile: 0.013 s
+Read times Min:       0.006 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9874ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0117 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9913ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0117 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 3.000 MB
+Total Throughput:  2.61 MB/s
+Total Duration:    1.148 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.543 s
+Write times 99th %ile: 0.510 s
+Write times 90th %ile: 0.022 s
+Write times 75th %ile: 0.020 s
+Write times 50th %ile: 0.017 s
+Write times 25th %ile: 0.015 s
+Write times Min:       0.009 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 3.000 MB
+Total Throughput:  2.89 MB/s
+Total Duration:    1.039 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       1.027 s
+Read times 99th %ile: 0.514 s
+Read times 90th %ile: 0.016 s
+Read times 75th %ile: 0.014 s
+Read times 50th %ile: 0.013 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 5.9832ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0137 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9916ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0137 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 3.500 MB
+Total Throughput:  3.23 MB/s
+Total Duration:    1.085 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.540 s
+Write times 99th %ile: 0.520 s
+Write times 90th %ile: 0.018 s
+Write times 75th %ile: 0.015 s
+Write times 50th %ile: 0.014 s
+Write times 25th %ile: 0.013 s
+Write times Min:       0.010 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 3.500 MB
+Total Throughput:  6.55 MB/s
+Total Duration:    0.535 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.524 s
+Read times 99th %ile: 0.025 s
+Read times 90th %ile: 0.015 s
+Read times 75th %ile: 0.014 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.006 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 5.9844ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0156 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9929ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0156 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 4.000 MB
+Total Throughput:  3.69 MB/s
+Total Duration:    1.083 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.547 s
+Write times 99th %ile: 0.519 s
+Write times 90th %ile: 0.018 s
+Write times 75th %ile: 0.015 s
+Write times 50th %ile: 0.014 s
+Write times 25th %ile: 0.013 s
+Write times Min:       0.011 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 4.000 MB
+Total Throughput:  7.31 MB/s
+Total Duration:    0.548 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.512 s
+Read times 99th %ile: 0.020 s
+Read times 90th %ile: 0.015 s
+Read times 75th %ile: 0.013 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.006 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9866ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0176 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (3.0309ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0176 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 4.500 MB
+Total Throughput:  4.31 MB/s
+Total Duration:    1.044 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.539 s
+Write times 99th %ile: 0.048 s
+Write times 90th %ile: 0.019 s
+Write times 75th %ile: 0.017 s
+Write times 50th %ile: 0.016 s
+Write times 25th %ile: 0.015 s
+Write times Min:       0.008 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 4.500 MB
+Total Throughput:  4.37 MB/s
+Total Duration:    1.030 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       1.010 s
+Read times 99th %ile: 0.028 s
+Read times 90th %ile: 0.015 s
+Read times 75th %ile: 0.013 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 5.0102ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0195 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (1.9935ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0195 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 5.000 MB
+Total Throughput:  8.55 MB/s
+Total Duration:    0.585 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.547 s
+Write times 99th %ile: 0.037 s
+Write times 90th %ile: 0.017 s
+Write times 75th %ile: 0.015 s
+Write times 50th %ile: 0.013 s
+Write times 25th %ile: 0.012 s
+Write times Min:       0.009 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 5.000 MB
+Total Throughput:  9.46 MB/s
+Total Duration:    0.529 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.517 s
+Read times 99th %ile: 0.025 s
+Read times 90th %ile: 0.014 s
+Read times 75th %ile: 0.013 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9859ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0215 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (1.9947ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0215 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 5.500 MB
+Total Throughput:  5.18 MB/s
+Total Duration:    1.062 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.544 s
+Write times 99th %ile: 0.512 s
+Write times 90th %ile: 0.018 s
+Write times 75th %ile: 0.016 s
+Write times 50th %ile: 0.014 s
+Write times 25th %ile: 0.013 s
+Write times Min:       0.009 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 5.500 MB
+Total Throughput:  5.33 MB/s
+Total Duration:    1.033 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       1.021 s
+Read times 99th %ile: 0.515 s
+Read times 90th %ile: 0.016 s
+Read times 75th %ile: 0.015 s
+Read times 50th %ile: 0.013 s
+Read times 25th %ile: 0.012 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9848ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0234 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (1.9948ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0234 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 6.000 MB
+Total Throughput:  5.63 MB/s
+Total Duration:    1.066 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.540 s
+Write times 99th %ile: 0.043 s
+Write times 90th %ile: 0.022 s
+Write times 75th %ile: 0.019 s
+Write times 50th %ile: 0.017 s
+Write times 25th %ile: 0.016 s
+Write times Min:       0.011 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 6.000 MB
+Total Throughput:  5.76 MB/s
+Total Duration:    1.042 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       1.023 s
+Read times 99th %ile: 0.512 s
+Read times 90th %ile: 0.016 s
+Read times 75th %ile: 0.015 s
+Read times 50th %ile: 0.014 s
+Read times 25th %ile: 0.013 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 3.9901ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0254 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (1.9578ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0254 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 6.500 MB
+Total Throughput:  6.29 MB/s
+Total Duration:    1.033 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.538 s
+Write times 99th %ile: 0.508 s
+Write times 90th %ile: 0.019 s
+Write times 75th %ile: 0.017 s
+Write times 50th %ile: 0.015 s
+Write times 25th %ile: 0.014 s
+Write times Min:       0.011 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 6.500 MB
+Total Throughput:  6.25 MB/s
+Total Duration:    1.040 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.519 s
+Read times 99th %ile: 0.512 s
+Read times 90th %ile: 0.017 s
+Read times 75th %ile: 0.015 s
+Read times 50th %ile: 0.014 s
+Read times 25th %ile: 0.012 s
+Read times Min:       0.006 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 5.9849ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0273 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9927ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0273 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 7.000 MB
+Total Throughput:  6.72 MB/s
+Total Duration:    1.042 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.543 s
+Write times 99th %ile: 0.043 s
+Write times 90th %ile: 0.021 s
+Write times 75th %ile: 0.019 s
+Write times 50th %ile: 0.017 s
+Write times 25th %ile: 0.016 s
+Write times Min:       0.012 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 7.000 MB
+Total Throughput:  6.72 MB/s
+Total Duration:    1.041 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       1.028 s
+Read times 99th %ile: 0.025 s
+Read times 90th %ile: 0.017 s
+Read times 75th %ile: 0.015 s
+Read times 50th %ile: 0.014 s
+Read times 25th %ile: 0.013 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9957ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0293 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (3.002ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0293 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 7.500 MB
+Total Throughput:  11.63 MB/s
+Total Duration:    0.645 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.546 s
+Write times 99th %ile: 0.040 s
+Write times 90th %ile: 0.020 s
+Write times 75th %ile: 0.017 s
+Write times 50th %ile: 0.014 s
+Write times 25th %ile: 0.013 s
+Write times Min:       0.008 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 7.500 MB
+Total Throughput:  14.47 MB/s
+Total Duration:    0.518 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.514 s
+Read times 99th %ile: 0.020 s
+Read times 90th %ile: 0.015 s
+Read times 75th %ile: 0.013 s
+Read times 50th %ile: 0.012 s
+Read times 25th %ile: 0.011 s
+Read times Min:       0.004 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9864ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0312 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.992ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0312 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 8.000 MB
+Total Throughput:  7.66 MB/s
+Total Duration:    1.045 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.548 s
+Write times 99th %ile: 0.035 s
+Write times 90th %ile: 0.019 s
+Write times 75th %ile: 0.017 s
+Write times 50th %ile: 0.016 s
+Write times 25th %ile: 0.015 s
+Write times Min:       0.011 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 8.000 MB
+Total Throughput:  7.65 MB/s
+Total Duration:    1.045 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       1.032 s
+Read times 99th %ile: 0.024 s
+Read times 90th %ile: 0.015 s
+Read times 75th %ile: 0.014 s
+Read times 50th %ile: 0.013 s
+Read times 25th %ile: 0.012 s
+Read times Min:       0.006 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9848ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0332 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (3.0303ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0332 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 8.500 MB
+Total Throughput:  7.59 MB/s
+Total Duration:    1.119 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.540 s
+Write times 99th %ile: 0.508 s
+Write times 90th %ile: 0.020 s
+Write times 75th %ile: 0.016 s
+Write times 50th %ile: 0.015 s
+Write times 25th %ile: 0.013 s
+Write times Min:       0.011 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 8.500 MB
+Total Throughput:  8.19 MB/s
+Total Duration:    1.037 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.519 s
+Read times 99th %ile: 0.511 s
+Read times 90th %ile: 0.018 s
+Read times 75th %ile: 0.017 s
+Read times 50th %ile: 0.015 s
+Read times 25th %ile: 0.013 s
+Read times Min:       0.004 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 4.9864ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0352 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9903ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0352 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 9.000 MB
+Total Throughput:  8.04 MB/s
+Total Duration:    1.120 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.555 s
+Write times 99th %ile: 0.078 s
+Write times 90th %ile: 0.030 s
+Write times 75th %ile: 0.024 s
+Write times 50th %ile: 0.020 s
+Write times 25th %ile: 0.018 s
+Write times Min:       0.014 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 9.000 MB
+Total Throughput:  8.64 MB/s
+Total Duration:    1.042 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.528 s
+Read times 99th %ile: 0.519 s
+Read times 90th %ile: 0.017 s
+Read times 75th %ile: 0.016 s
+Read times 50th %ile: 0.014 s
+Read times 25th %ile: 0.013 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 5.9787ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0371 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9915ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0371 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 9.500 MB
+Total Throughput:  9.02 MB/s
+Total Duration:    1.053 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.538 s
+Write times 99th %ile: 0.518 s
+Write times 90th %ile: 0.022 s
+Write times 75th %ile: 0.020 s
+Write times 50th %ile: 0.018 s
+Write times 25th %ile: 0.016 s
+Write times Min:       0.010 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 9.500 MB
+Total Throughput:  9.23 MB/s
+Total Duration:    1.029 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.517 s
+Read times 99th %ile: 0.512 s
+Read times 90th %ile: 0.016 s
+Read times 75th %ile: 0.014 s
+Read times 50th %ile: 0.013 s
+Read times 25th %ile: 0.012 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 6.9822ms
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0391 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Generating in-memory sample data... Done (2.9912ms)
+
+Running Write test...
+
+Running Read test...
+
+Test parameters
+endpoint(s):      [http://127.0.0.1:9000]
+bucket:           loadgen
+objectNamePrefix: loadgen
+objectSize:       0.0391 MB
+numClients:       8
+numSamples:       256
+verbose:       %!d(bool=false)
+
+
+Results Summary for Write Operation(s)
+Total Transferred: 10.000 MB
+Total Throughput:  9.31 MB/s
+Total Duration:    1.074 s
+Number of Errors:  0
+------------------------------------
+Write times Max:       0.549 s
+Write times 99th %ile: 0.106 s
+Write times 90th %ile: 0.025 s
+Write times 75th %ile: 0.022 s
+Write times 50th %ile: 0.019 s
+Write times 25th %ile: 0.018 s
+Write times Min:       0.012 s
+
+
+Results Summary for Read Operation(s)
+Total Transferred: 10.000 MB
+Total Throughput:  9.56 MB/s
+Total Duration:    1.046 s
+Number of Errors:  0
+------------------------------------
+Read times Max:       0.526 s
+Read times 99th %ile: 0.518 s
+Read times 90th %ile: 0.019 s
+Read times 75th %ile: 0.016 s
+Read times 50th %ile: 0.014 s
+Read times 25th %ile: 0.013 s
+Read times Min:       0.005 s
+
+
+Cleaning up 256 objects...
+Deleting a batch of 256 objects in range {0, 255}... Succeeded
+Successfully deleted 256/256 objects in 7.978ms
